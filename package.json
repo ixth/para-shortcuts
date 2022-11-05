@@ -8,9 +8,15 @@
 	},
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
-		"build": "node esbuild.config.mjs production"
+		"build": "node esbuild.config.mjs production",
+		"lint": "eslint src/*.ts",
+		"test": "npm run lint"
 	},
-	"keywords": ["obsidian-plugin", "PARA", "Knowledge management"],
+	"keywords": [
+		"obsidian-plugin",
+		"PARA",
+		"Knowledge management"
+	],
 	"author": "gOAT",
 	"license": "MIT",
 	"devDependencies": {
@@ -19,6 +25,7 @@
 		"@typescript-eslint/parser": "^5.2.0",
 		"builtin-modules": "^3.2.0",
 		"esbuild": "0.13.12",
+		"eslint": "^8.30.0",
 		"obsidian": "^0.12.0",
 		"tslib": "2.3.1",
 		"typescript": "4.4.4"
