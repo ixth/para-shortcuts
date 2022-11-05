@@ -1,14 +1,8 @@
-import ParaShortcutsPlugin from "main";
-import { App, PluginSettingTab, Setting } from "obsidian";
-import { ParaType } from "para_types";
+import { PluginSettingTab, Setting } from "obsidian";
+import type ParaShortcutsPlugin from "main";
 
 export class ParaShortcutsSettingTab extends PluginSettingTab {
 	plugin: ParaShortcutsPlugin;
-
-	constructor(app: App, plugin: ParaShortcutsPlugin) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
 
 	display(): void {
 		const { containerEl } = this;
