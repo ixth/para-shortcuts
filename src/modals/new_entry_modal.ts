@@ -1,5 +1,5 @@
 import ParaShortcutsPlugin from "main";
-import { App, FuzzySuggestModal} from "obsidian";
+import { App, FuzzySuggestModal } from "obsidian";
 import { ParaType } from "para_types";
 
 
