@@ -108,7 +108,7 @@ export default class ParaShortcutsPlugin extends Plugin {
 			(ele) => ele.name === folderName
 		);
 		if (selectedFolder !== undefined) {
-			const filepath = normalizePath([folderName, filename].join("/"));
+			const filepath = normalizePath(`${folderName}/${filename}`);
 			const createdFile = await this.app.vault.create(
 				filepath,
 				this.createMetaHeader()
@@ -243,13 +243,7 @@ export default class ParaShortcutsPlugin extends Plugin {
 
 	private moveToArchive(file: TAbstractFile): void {
 		const archiveFolderName = this.folderMapping.get(ParaType.archive);
-		const pathToFile = normalizePath(
-			[
-				this.app.vault.getRoot().name,
-				archiveFolderName,
-				file.path,
-			].join("/")
-		);
+		const pathToFile = normalizePath(`${archiveFolderName}/${file.path}`);
 		this.moveFileAndCreateFolder(file, pathToFile)
 			.then(() => {
 				new Notice(`Moved file to ${pathToFile}.`);
