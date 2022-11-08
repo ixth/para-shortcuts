@@ -189,19 +189,19 @@ export default class ParaShortcutsPlugin extends Plugin {
 					) && activeFile.path?.contains(POSTPONE_FOLDER_NAME)
 				);
 			}
+			const newFilePath = normalizePath(
+				activeFile.path.replace(`/${POSTPONE_FOLDER_NAME}`, "")
+			);
+			const folderToDelete = activeFile.parent;
+			this.moveFileAndCreateFolder(activeFile, newFilePath)
+				.then(() => {
+					new Notice(`Rescheduled ${newFilePath}.`);
+					this.deleteFolderIfEmpty(folderToDelete);
+				})
+				.catch((_) => {
+					new Notice(`Unable to move file to ${newFilePath}.`);
+				});
 		}
-		const newFilePath = normalizePath(
-			activeFile.path.replace(`/${POSTPONE_FOLDER_NAME}`, "")
-		);
-		const folderToDelete = activeFile.parent;
-		this.moveFileAndCreateFolder(activeFile, newFilePath)
-			.then(() => {
-				new Notice(`Rescheduled ${newFilePath}.`);
-				this.deleteFolderIfEmpty(folderToDelete);
-			})
-			.catch((_) => {
-				new Notice(`Unable to move file to ${newFilePath}.`);
-			});
 	}
 
 	private commandPostponeEntry(checking: boolean): boolean | void {
