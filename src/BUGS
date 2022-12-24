@@ -1,9 +1,5 @@
 BUGS
 
 - Plugin does not distinct between files and folders
-- `commandRescheduleEntry`: you can reschedule empty file
-- `deleteFolderIfEmpty`: folder.name is checked against enum value, not actual congfig folder names
 - `activeFile.path?.contains(POSTPONE_FOLDER_NAME)` is a bit too broad
 - `moveFileAndCreateFolder` will catch ANY error
-- completely unneeded para/project.ts
-- `getRoot().name` is used for some reason, it's supposed to be empty
