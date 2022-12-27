@@ -85,8 +85,6 @@ export default class ParaShortcutsPlugin extends Plugin {
 		this.addSettingTab(new ParaShortcutsSettingTab(this.app, this));
 	}
 
-	onunload() {}
-
 	async loadSettings() {
 		const loadedData = await this.loadData();
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, loadedData);
